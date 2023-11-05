@@ -15,6 +15,7 @@ import ifcopenshell.util.element
 import ifcopenshell.util.placement
 import ifcopenshell.util.shape
 
+angle_to_north = 21 # degrees
 path = '/Users/jta/j/doc/house/huenerberg/waldrain/html/waldrain.github.io/doc/kuri/2023-09-27_kuechenmeister'
 filename = '0_3d_modell.ifc'
 
