@@ -8,6 +8,7 @@
 #
 # 2023-10-31 initial code
 #
+import  os
 import ifcopenshell
 import ifcopenshell.geom
 import ifcopenshell.util
