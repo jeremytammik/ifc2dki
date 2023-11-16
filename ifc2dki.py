@@ -18,7 +18,7 @@ import ifcopenshell.util.shape
 
 angle_to_north = 21 # degrees
 filepath_original = '/Users/jta/j/doc/house/huenerberg/waldrain/html/waldrain.github.io/doc/kuri/2023-09-27_kuechenmeister/0_3d_modell.ifc'
-filepath_simplified = '/Users/jta/j/doc/house/huenerberg/waldrain/html/waldrain.github.io/doc/kuri/2023-11-16_simplified/2023-11-16_07_delete_holzstaender.ifc'
+filepath_simplified = '/Users/jta/j/doc/house/huenerberg/waldrain/html/waldrain.github.io/doc/kuri/2023-11-16_simplified/2023-11-16_08_aussenwand.ifc'
 filepath = filepath_simplified
 filename = os.path.basename(filepath)
 
@@ -30,11 +30,19 @@ walls = model.by_type('IfcWall')
 
 print(len(walls), 'walls in', filename)
 
+nIgnored = 0
+nAussenwand = 0
+nOther = 0
+
 for w in walls:
   wall_type = ifcopenshell.util.element.get_type(w)
   if wall_type: wtn = wall_type.Name
-  else: wtn = wall_type
-  print(f"{w.Name}/{wtn}",)
+    print(f"{w.Name}/{wtn}",)
+    if 'Aussenwand' in wtn: ++nAussenwand
+  else: ++nOther
+  else: ++nIgnored
+
+print( nAussenwand, 'aussen,', nOther, 'other', nIgnored, 'ignored')
 
 i = 0
 wall = walls[i]
