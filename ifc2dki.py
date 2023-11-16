@@ -40,7 +40,7 @@ for w in walls:
     wtn = wall_type.Name
     print(f"{w.Name}/{wtn}",)
     if 'Aussenwand' in wtn: ++nAussenwand
-  else: ++nOther
+    else: ++nOther
   else: ++nIgnored
 
 print( nAussenwand, 'aussen,', nOther, 'other', nIgnored, 'ignored')
