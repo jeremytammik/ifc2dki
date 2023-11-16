@@ -18,7 +18,7 @@ import ifcopenshell.util.shape
 
 angle_to_north = 21 # degrees
 filepath_original = '/Users/jta/j/doc/house/huenerberg/waldrain/html/waldrain.github.io/doc/kuri/2023-09-27_kuechenmeister/0_3d_modell.ifc'
-filepath_simplified = '/Users/jta/j/doc/house/huenerberg/waldrain/html/waldrain.github.io/doc/kuri/2023-11-16_simplified/2023-11-16_08_aussenwand.ifc'
+filepath_simplified = '/Users/jta/j/doc/house/huenerberg/waldrain/html/waldrain.github.io/doc/kuri/2023-11-16_simplified/2023-11-16_09_atriumwand.ifc'
 filepath = filepath_simplified
 filename = os.path.basename(filepath)
 
@@ -30,8 +30,9 @@ walls = model.by_type('IfcWall')
 
 print(len(walls), 'walls in', filename)
 
-nIgnored = 0
+nAtriumwand = 0
 nAussenwand = 0
+nNotype = 0
 nOther = 0
 
 for w in walls:
@@ -39,11 +40,12 @@ for w in walls:
   if wall_type:
     wtn = wall_type.Name
     print(f"{w.Name}/{wtn}")
-    if 'Aussenwand' in wtn: nAussenwand += 1
+    if 'Atriumwand' in wtn: nAtriumwand += 1
+    elif 'Aussenwand' in wtn: nAussenwand += 1
     else: nOther += 1
-  else: nIgnored += 1
+  else: nNotype += 1
 
-print( nAussenwand, 'aussen,', nOther, 'other', nIgnored, 'ignored')
+print( nAtriumwand, 'atrium', nAussenwand, 'aussen,', nOther, 'other', nNotype, 'no wall type')
 
 i = 0
 wall = walls[i]
