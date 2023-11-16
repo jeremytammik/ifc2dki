@@ -30,8 +30,11 @@ walls = model.by_type('IfcWall')
 
 print(len(walls), 'walls in', filename)
 
-#for w in walls:
-#  print(w.Name)
+for w in walls:
+  wall_type = ifcopenshell.util.element.get_type(w)
+  if wall_type: wtn = wall_type.Name
+  else: wtn = wall_type
+  print(f"{w.Name}/{wtn}",)
 
 i = 0
 wall = walls[i]
