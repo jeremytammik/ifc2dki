@@ -30,22 +30,23 @@ walls = model.by_type('IfcWall')
 
 print(len(walls), 'walls in', filename)
 
-nAtriumwand = 0
-nAussenwand = 0
 nNotype = 0
 nOther = 0
+
+walls_atrium = []
+walls_aussen = []
 
 for w in walls:
   wall_type = ifcopenshell.util.element.get_type(w)
   if wall_type:
     wtn = wall_type.Name
     print(f"{w.Name}/{wtn}")
-    if 'Atriumwand' in wtn: nAtriumwand += 1
-    elif 'Aussenwand' in wtn: nAussenwand += 1
+    if 'Atriumwand' in wtn: walls_atrium.append(w)
+    elif 'Aussenwand' in wtn: walls_aussen.append(w)
     else: nOther += 1
   else: nNotype += 1
 
-print( nAtriumwand, 'atrium,', nAussenwand, 'aussen,', nOther, 'other,', nNotype, 'no wall type')
+print( len(walls_atrium), 'atrium,', len(walls_aussen), 'aussen,', nOther, 'other,', nNotype, 'no wall type')
 
 i = 0
 wall = walls[i]
