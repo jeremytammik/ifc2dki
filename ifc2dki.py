@@ -59,7 +59,8 @@ print('local placement\n', matrix)
 #print(location)
 
 # AllPlan property sets
-#print(ifcopenshell.util.element.get_psets(wall, qtos_only=False))
+print(ifcopenshell.util.element.get_psets(wall, qtos_only=False))
+
 # You can use ifcopenshell.util.element.get_psets(wall, qtos_only=True)
 # if you are using the high level ifcopenshell python api
 
