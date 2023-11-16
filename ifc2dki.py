@@ -45,7 +45,7 @@ for w in walls:
     else: nOther += 1
   else: nNotype += 1
 
-print( nAtriumwand, 'atrium', nAussenwand, 'aussen,', nOther, 'other', nNotype, 'no wall type')
+print( nAtriumwand, 'atrium,', nAussenwand, 'aussen,', nOther, 'other,', nNotype, 'no wall type')
 
 i = 0
 wall = walls[i]
