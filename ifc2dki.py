@@ -40,7 +40,7 @@ for w in walls:
   wall_type = ifcopenshell.util.element.get_type(w)
   if wall_type:
     wtn = wall_type.Name
-    print(f"{w.Name}/{wtn}")
+    #print(f"{w.Name}/{wtn}")
     if 'Atriumwand' in wtn: walls_atrium.append(w)
     elif 'Aussenwand' in wtn: walls_aussen.append(w)
     else: nOther += 1
@@ -49,17 +49,17 @@ for w in walls:
 print( len(walls_atrium), 'atrium,', len(walls_aussen), 'aussen,', nOther, 'other,', nNotype, 'no wall type')
 
 i = 0
-wall = walls[i]
+wall = walls_aussen[i]
 
-print(len(wall), 'data items in wall', i)
+#print(len(wall), 'data items in wall', i)
 
 #for p in wall: print(' ', p)
 
 print(wall.get_info())
 
-wall_type = ifcopenshell.util.element.get_type(wall)
-if wall_type: print(f"The wall type of {wall.Name} is {wall_type.Name}")
-else: print(f"The wall type of {wall.Name} is {wall_type}")
+#wall_type = ifcopenshell.util.element.get_type(wall)
+#if wall_type: print(f"The wall type of {wall.Name} is {wall_type.Name}")
+#else: print(f"The wall type of {wall.Name} is {wall_type}")
 
 container = ifcopenshell.util.element.get_container(wall)
 print(f"The wall is located on {container.Name}")
