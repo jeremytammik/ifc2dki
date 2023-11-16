@@ -36,7 +36,8 @@ nOther = 0
 
 for w in walls:
   wall_type = ifcopenshell.util.element.get_type(w)
-  if wall_type: wtn = wall_type.Name
+  if wall_type:
+    wtn = wall_type.Name
     print(f"{w.Name}/{wtn}",)
     if 'Aussenwand' in wtn: ++nAussenwand
   else: ++nOther
