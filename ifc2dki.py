@@ -29,14 +29,15 @@ def print_wall_data(wall):
 
   #for p in wall: print(' ', p)
 
-  print(wall.get_info())
+  #print(wall.get_info())
 
   #wall_type = ifcopenshell.util.element.get_type(wall)
   #if wall_type: print(f"The wall type of {wall.Name} is {wall_type.Name}")
   #else: print(f"The wall type of {wall.Name} is {wall_type}")
 
+  wall_type = ifcopenshell.util.element.get_type(wall)
   container = ifcopenshell.util.element.get_container(wall)
-  print(f"The wall is located on {container.Name}")
+  print(f"{wall_type.Name} on {container.Name}")
 
   matrix = ifcopenshell.util.placement.get_local_placement(wall.ObjectPlacement)
   print('local placement\n', matrix)
@@ -48,7 +49,7 @@ def print_wall_data(wall):
   #print(location)
 
   # AllPlan property sets
-  print(ifcopenshell.util.element.get_psets(wall, qtos_only=False))
+  #print(ifcopenshell.util.element.get_psets(wall, qtos_only=False))
 
   # You can use ifcopenshell.util.element.get_psets(wall, qtos_only=True)
   # if you are using the high level ifcopenshell python api
@@ -62,8 +63,10 @@ def print_wall_data(wall):
   x = ifcopenshell.util.shape.get_x(geo)
   y = ifcopenshell.util.shape.get_y(geo)
   z = ifcopenshell.util.shape.get_z(geo)
-  print('X', x, 'Y', y, 'Z', z, 'X*Z', x*z)
-  print('area', ifcopenshell.util.shape.get_area(geo))
+  print('X {x:.2f} Y {y:.2f} Z {y:.2f} X*Z {x*z:.2f}')
+  side_face_area = 2*y*x + 2*y*z
+  total_area = ifcopenshell.util.shape.get_area(geo)
+  print('total area {total_area:.2f}, sides {side_face_area:.2f}, outer face {0.5*(total_area - side_face_area):.2f}')
   print('volume', ifcopenshell.util.shape.get_volume(geo))
   #print('matrix', ifcopenshell.util.shape.get_shape_matrix(geo))
 
