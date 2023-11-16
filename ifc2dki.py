@@ -20,8 +20,9 @@ angle_to_north = 21 # degrees
 filepath_original = '/Users/jta/j/doc/house/huenerberg/waldrain/html/waldrain.github.io/doc/kuri/2023-09-27_kuechenmeister/0_3d_modell.ifc'
 filepath_simplified = '/Users/jta/j/doc/house/huenerberg/waldrain/html/waldrain.github.io/doc/kuri/2023-11-16_simplified/2023-11-16_07_delete_holzstaender.ifc'
 filepath = filepath_simplified
+filename = os.path.basename(filepath)
 
-print('pydki.py loading', os.path.basename(filepath))
+print('pydki.py loading', filename)
 
 model = ifcopenshell.open(filepath)
 
