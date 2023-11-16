@@ -63,10 +63,10 @@ def print_wall_data(wall):
   x = ifcopenshell.util.shape.get_x(geo)
   y = ifcopenshell.util.shape.get_y(geo)
   z = ifcopenshell.util.shape.get_z(geo)
-  print('X {x:.2f} Y {y:.2f} Z {y:.2f} X*Z {x*z:.2f}')
+  print(f'X {x:.2f} Y {y:.2f} Z {y:.2f} X*Z {x*z:.2f}')
   side_face_area = 2*y*x + 2*y*z
   total_area = ifcopenshell.util.shape.get_area(geo)
-  print('total area {total_area:.2f}, sides {side_face_area:.2f}, outer face {0.5*(total_area - side_face_area):.2f}')
+  print(f'total area {total_area:.2f}, sides {side_face_area:.2f}, outer face {0.5*(total_area - side_face_area):.2f}')
   print('volume', ifcopenshell.util.shape.get_volume(geo))
   #print('matrix', ifcopenshell.util.shape.get_shape_matrix(geo))
 
