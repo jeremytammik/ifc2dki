@@ -78,7 +78,7 @@ model = ifcopenshell.open(filepath)
 walls = model.by_type('IfcWall')
 windows = model.by_type('IfcWindow')
 
-print(f'model contains {len(walls)} walls and {len(windows)} windows')
+print(f'model contains {len(walls)} walls and {len(windows)} windows.')
 
 nNotype = 0
 nOther = 0
@@ -96,7 +96,7 @@ for w in walls:
     else: nOther += 1
   else: nNotype += 1
 
-print(f'wall classification: {len(walls_atrium)} atrium, {len(walls_aussen)} aussen, {nOther} other, {nNotype} have no wall type')
+print(f'wall classification: {len(walls_atrium)} atrium, {len(walls_aussen)} aussen, {nOther} other, {nNotype} have no wall type.')
 
 i = 0
 print_wall_data(walls_aussen[i])
