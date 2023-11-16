@@ -78,7 +78,7 @@ model = ifcopenshell.open(filepath)
 walls = model.by_type('IfcWall')
 windows = model.by_type('IfcWindow')
 
-print(f'{len(walls)} walls and {len(windows)} in {filename}')
+print(f'{len(walls)} walls and {len(windows)} windows in {filename}')
 
 nNotype = 0
 nOther = 0
