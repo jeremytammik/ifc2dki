@@ -96,7 +96,7 @@ for w in walls:
     else: nOther += 1
   else: nNotype += 1
 
-print(f'wall classification: {len(walls_atrium)} atrium, {len(walls_aussen)} aussen, {nOther} other, {nNotype} 'no wall type')
+print(f'wall classification: {len(walls_atrium)} atrium, {len(walls_aussen)} aussen, {nOther} other, {nNotype} have no wall type')
 
 i = 0
 print_wall_data(walls_aussen[i])
